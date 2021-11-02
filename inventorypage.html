@@ -12,13 +12,9 @@
 	<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<script  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	
-	<!-- my desigh -->
-	<link rel="stylesheet" type="text/css" href="design.css">
-	<!-- my desigh with mediaRule -->
-	<link rel="stylesheet" type="text/css" href="design2.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	
-	<!-- W3.CSS link -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	
 	<!-- my javascript code -->
 	<script>
@@ -56,7 +52,7 @@
 			{
 				$('#products').DataTable(
 				{
-				<!-- list is my new array with the first three columns -->
+				// list is my new array with the first three columns
 					"data": datalist,
 					"autoWidth":true,
 					"destroy":true,
@@ -75,28 +71,41 @@
 </script>
 <body>
 
-  <!-- Product List using Database Table  -->
-  
-  <table id="products" class="display w3-table-all">
-	
-	</table>
+  <!--Container-->
+	<div class="container">
+		<div class="text-center">
+			<h1 class=" text-dark bg-white">Inventory</h1>
+			<!-- Product List using Database Table  -->
+			
+			<table id="products" class="table">	
+			</table>
+			
+			<form method="GET" enctype="application/x-www-form-urlencoded" onsubmit="updateInventory()" action="inventorypage.html" >	
+				<h3>Order</h3>
+				<div class="form-group">
+					<!-- Product Id required -->
+					<label><b>Products:</b></label>
+					<select ID="productName" name="productlist" >
+						<!-- for now it is only content select item -->
+						<option value="" selected>none</option>
+					</select> 
+				</div>
+				<div class="form-group">
+					<!-- Quantity using range and text box  -->
+					<b>Quantity:</b> <input name="quantity" id="rangeoutput" type="number" value="1" step="1" min = "1"  />
+					<input id="rangeinput" type="range" min="1" step="5" max="1000" value = "1" oninput="rangeoutput.value=rangeinput.value" />	
+				</div>
+				<div class = "form-group">
+					<input class="btn btn-primary" type="submit" value="Order Inventory ">
+				</div>
+				
+				<br>
+				<br>
+				
+			</form>
 
-	<br>
-	<br>
-
-
-	<!-- Footer -->
-	<div class="footer">
-		<p>
-			<i>
-				5817 evergreen dr, Dearborn Heights, MI, 48127
-				555-555-5555
-				© copy right to Boushr's Jewelry
-			</i>
-		</p>
+		</div>
 	</div>
-	
-	
 
 </body>
 </head>
