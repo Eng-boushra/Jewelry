@@ -26,20 +26,33 @@
 	<meta name="description" content="Boushra's Jewelry"/>
 	<meta name="keywords" content="HTML, Jewelry, Accessories">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- W3.CSS link -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
 	
   
 </head>
 
 <body>
-<!-- navigation tab in the header of the body -->
-	<div class="navbar w3-bar">
-		<a href="mainpage.html" class="w3-bar-item w3-button"><h3>Home </h3></a>
-		<a href="productspage.html" class="w3-bar-item w3-button"><h3>Product </h3></a>
-		<a href="orderpage.html" class="w3-bar-item w3-button"><h3>Order </h3></a>
-	</div>
+	<!-- navigation tab in the header of the body -->
+	<nav class="navbar navbar-expand-sm justify-content-center">
+		<a class="navbar-brand" href="logo.PNG">
+			<img src="logo.PNG" alt="Logo" style="width:40px;">
+		</a>
+		<!-- Links -->
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" href="mainpage.html">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="productspage.html">Product</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="orderpage.html">Order</a>
+		  </li>
+		</ul>
+	  
+	</nav>
 
 <?php
 
