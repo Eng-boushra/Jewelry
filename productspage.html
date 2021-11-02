@@ -13,7 +13,7 @@
 <head>
 	<!-- title, page information, author name and descreption -->
   
-	<title>Products, V4</title>
+	<title>Products</title>
 	<meta charset="UTF-8">
 	<meta name="author" content="Boushr Abdulmohsen"/>
 	<meta name="description" content="Boushra's Jewelry"/>
@@ -21,6 +21,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<script  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	
 	
 	<!-- my javascript code -->
@@ -53,7 +55,7 @@
 			{
 				$('#products').DataTable(
 				{
-				<!-- datatable is my new array with the first three columns -->
+				//<!-- datatable is my new array with the first three columns -->
 					"data": datalist,
 					"autoWidth": true,
 					"destroy":true,
@@ -86,56 +88,50 @@
  
 <body>
 
-	 
 	<!-- navigation tab in the header of the body -->
-	<div class="navbar w3-bar">
-		<a href="mainpage.html" class="w3-bar-item w3-button"><h3>Home </h3></a>
-		<a href="productspage.html" class="w3-bar-item w3-button"><h3>Product </h3></a>
-		<a href="orderpage.html" class="w3-bar-item w3-button"><h3>Order </h3></a>
+	<nav class="navbar navbar-expand-sm justify-content-center">
+		<a class="navbar-brand" href="logo.PNG">
+			<img src="logo.PNG" alt="Logo" style="width:40px;">
+		</a>
+		<!-- Links -->
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" href="mainpage.html">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="productspage.html">Product</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="orderpage.html">Order</a>
+		  </li>
+		</ul>
+	  
+	</nav>
+
+	<!--Container-->
+	<div class="container">
+		<div class="text-center">
+			<h1 class=" text-dark bg-white">Products</h1>	
+			<!-- datatable to product list and using form to navigate to the order page 
+	 		_blank to open in new page -->
+			<form action="orderpage.html" target="_blank" >
+				<!-- Product List using Database Table  -->
+				<table id="products" class="display w3-table-all">
+			  	</table>
+			  	<!-- Submit Button navigate to the order page-->
+			  	<button type="submit" class="btn btn-primary">Make your order Now</button>
+		  </form>
+		</div>
 	</div>
 	
-	
-<!-- datatable to product list and using form to navigate to the order page 
-	 _blank to open in new page -->
-	<div class="pageheader">
-		<img src="logo.PNG" alt="logo" style="width:10%; height:10%">
-		<h1 class="w3-center w3-xxxlarge"><i>Products</i></h1>
-	
-	</div>
-	
-	<br>
-	<br>
-	
-<form action="orderpage.html" target="_blank" >
-  <!-- Product List using Database Table  -->
-  
-  <table id="products" class="display w3-table-all">
-	
-	</table>
-	
-	<br>
-	<br>
-	<!-- Submit Button navigate to the order page-->
-	<input class="button" type="submit" value="Order Now"/>
-	
-	<br>
-	<br>
-
-
 	<!-- Footer -->
-	<div class="footer">
-		<p>
-			<i>
-				5817 evergreen dr, Dearborn Heights, MI, 48127
-				555-555-5555
-				© copy right to Boushr's Jewelry
-			</i>
-		</p>
-	</div>
-	
-	
-</form>	
-
+	<footer class="mt-5 pt-5 pb-5 footer text-center" >
+		<small>
+			5817 evergreen dr, Dearborn Heights, MI, 48127
+			555-555-5555
+			© copy right to Boushr's Jewelry.
+		</small>
+	</footer>
 
 </body>
  
