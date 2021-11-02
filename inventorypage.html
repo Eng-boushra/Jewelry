@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<!-- title, page information, author name and descreption -->
+  
+	<title>Inventory Page, V4</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Boushr Abdulmohsen"/>
+	<meta name="description" content="Boushra's Jewelry"/>
+	<meta name="keywords" content="HTML, Jewelry, Accessories"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	
+	<!-- my desigh -->
+	<link rel="stylesheet" type="text/css" href="design.css">
+	<!-- my desigh with mediaRule -->
+	<link rel="stylesheet" type="text/css" href="design2.css">
+	
+	<!-- W3.CSS link -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+	<!-- my javascript code -->
+	<script>
+	"use strict";
+	// should be a global array to read it in the function and keep the data because we need to read it in the table
+	var table, datalist;
+	//jquery request
+	$(function()
+    {    
+        var queryString = "request=get";
+        $.ajax(
+        {
+          cache:false,
+          data:queryString,
+          dataType:"json",
+          type:"GET",
+          url:"ProductsData.json",
+          success:retrieveData
+        });
+    });	
+		function retrieveData(table)
+		{
+			// new array for the first columns  and the last two
+			datalist = new Array(5);
+			for(var i = 0; i < 5; i++)
+			{
+				//first column
+				datalist[i] = table[i].slice(0,1);
+				//forth column
+				datalist[i].push(table[i].slice(3,4));
+				//fifth column
+				datalist[i].push(table[i].slice(4,5));
+			}
+			$(document).ready(function()
+			{
+				$('#products').DataTable(
+				{
+				<!-- list is my new array with the first three columns -->
+					"data": datalist,
+					"autoWidth":true,
+					"destroy":true,
+					columns:
+					[
+					{ title: "Product" },
+					{ title: "Unit cost" },
+					{ title: "Quantity in inventory" },
+					]
+				});
+			});
+	    }
+
+		
+
+</script>
+<body>
+
+  <!-- Product List using Database Table  -->
+  
+  <table id="products" class="display w3-table-all">
+	
+	</table>
+
+	<br>
+	<br>
+
+
+	<!-- Footer -->
+	<div class="footer">
+		<p>
+			<i>
+				5817 evergreen dr, Dearborn Heights, MI, 48127
+				555-555-5555
+				© copy right to Boushr's Jewelry
+			</i>
+		</p>
+	</div>
+	
+	
+
+</body>
+</head>
+
+</html>
